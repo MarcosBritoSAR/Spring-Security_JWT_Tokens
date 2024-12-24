@@ -21,4 +21,8 @@ public class PessoaService {
         return pessoaRepository.findAll();
     }
 
+    public Pessoa getById(Long id) {
+        return pessoaRepository.findById(id).orElseThrow(() -> {throw new RuntimeException("Pessoa não encontrada");});
+    }
+
 }
