@@ -1,5 +1,9 @@
 package com.marcosbrito.compass.spring.security.demo.common;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import com.marcosbrito.compass.spring.security.demo.entites.Pessoa;
 
 public class ConstantesPessoa {
@@ -12,4 +16,6 @@ public class ConstantesPessoa {
     public static final Pessoa CARLA = new Pessoa(6L, "Carla", "carla@email.com", "33445");
     public static final Pessoa LUCAS = new Pessoa(7L, "Lucas", "lucas@email.com", "55667");
     
+    public static final List<Pessoa> PESSOAS = new ArrayList<>(Arrays.asList(MARCOS, ANA, JOAO, MARIA, PEDRO, CARLA, LUCAS));
+
 }

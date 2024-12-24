@@ -1,5 +1,7 @@
 package com.marcosbrito.compass.spring.security.demo.entites;
 
+import java.io.Serializable;
+
 import javax.validation.constraints.NotBlank;
 
 import jakarta.persistence.Column;
@@ -18,8 +20,10 @@ import lombok.ToString;
 
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString @EqualsAndHashCode
 @Entity
-@Table(name = "pessoa")
-public class Pessoa {
+@Table(name = "pessoas")
+public class Pessoa implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

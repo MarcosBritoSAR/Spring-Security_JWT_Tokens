@@ -1,0 +1,16 @@
+INSERT INTO `baseTeste`.`pessoas` (`id`, `email`, `nome`, `senha`) VALUES ('2', 'ana@email.com', 'Ana Silva', 'senha123');
+INSERT INTO `baseTeste`.`pessoas` (`id`, `email`, `nome`, `senha`) VALUES ('3', 'joao@email.com', 'João Santos', 'joao2024');
+INSERT INTO `baseTeste`.`pessoas` (`id`, `email`, `nome`, `senha`) VALUES ('4', 'maria@email.com', 'Maria Oliveira', 'maria789');
+INSERT INTO `baseTeste`.`pessoas` (`id`, `email`, `nome`, `senha`) VALUES ('5', 'pedro@email.com', 'Pedro Costa', 'pedro321');
+INSERT INTO `baseTeste`.`pessoas` (`id`, `email`, `nome`, `senha`) VALUES ('6', 'lucas@email.com', 'Lucas Almeida', 'lucas987');
+INSERT INTO `baseTeste`.`pessoas` (`id`, `email`, `nome`, `senha`) VALUES ('7', 'juliana@email.com', 'Juliana Pereira', 'juliana456');
+INSERT INTO `baseTeste`.`pessoas` (`id`, `email`, `nome`, `senha`) VALUES ('8', 'carlos@email.com', 'Carlos Souza', 'carlos654');
+INSERT INTO `baseTeste`.`pessoas` (`id`, `email`, `nome`, `senha`) VALUES ('9', 'fernanda@email.com', 'Fernanda Lima', 'fernanda852');
+INSERT INTO `baseTeste`.`pessoas` (`id`, `email`, `nome`, `senha`) VALUES ('10', 'rafael@email.com', 'Rafael Barbosa', 'rafael963');
+INSERT INTO `baseTeste`.`pessoas` (`id`, `email`, `nome`, `senha`) VALUES ('11', 'lais@email.com', 'Lais Rocha', 'lais159');
+INSERT INTO `baseTeste`.`pessoas` (`id`, `email`, `nome`, `senha`) VALUES ('12', 'bruno@email.com', 'Bruno Martins', 'bruno753');
+INSERT INTO `baseTeste`.`pessoas` (`id`, `email`, `nome`, `senha`) VALUES ('13', 'carla@email.com', 'Carla Mendes', 'carla951');
+INSERT INTO `baseTeste`.`pessoas` (`id`, `email`, `nome`, `senha`) VALUES ('14', 'roberto@email.com', 'Roberto Azevedo', 'roberto258');
+INSERT INTO `baseTeste`.`pessoas` (`id`, `email`, `nome`, `senha`) VALUES ('15', 'paula@email.com', 'Paula Nogueira', 'paula456');
+INSERT INTO `baseTeste`.`pessoas` (`id`, `email`, `nome`, `senha`) VALUES ('16', 'fabio@email.com', 'Fábio Freitas', 'fabio654');
+INSERT INTO `baseTeste`.`pessoas` (`id`, `email`, `nome`, `senha`) VALUES ('17', 'tatiane@email.com', 'Tatiane Duarte', 'tatiane852');
