@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.marcosbrito.compass.spring.security.demo.entites.Pessoa;
 import com.marcosbrito.compass.spring.security.demo.repository.PessoaRepository;
 import com.marcosbrito.compass.spring.security.demo.web.dto.RegistroDto;
+import com.marcosbrito.compass.spring.security.demo.web.token.security.TokenService;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,18 +28,21 @@ public class AutenticacaoController {
     @Autowired
     private PessoaRepository pessoaRepository;
 
+    @Autowired
+    private TokenService tokenService;
+
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody AutentificacaoDto dto) {
 
         var username = new UsernamePasswordAuthenticationToken(dto.email(), dto.senha());// Encapsula o usuario e senha
-        var auth = this.authenticationManager.authenticate(username); // Verifica no banco de dados as credenciais e
-                                                                      // retorna o ususairo ja autenticado
-
+        var auth = this.authenticationManager.authenticate(username); // Verifica no banco de dados as credenciais da user e senhas e lanca um 202 caso confirme, caso não, um 403 forbidem
+                                                                      
+        var token = tokenService.generateToken((Pessoa) auth.getPrincipal());
         /*
          * Estou configurando a autenticação do usuario aqui para preciso informar no
          * SSC que ele tem que buscar aqui a forma de autenticação
          */
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok().body(token);
     }
 
     @PostMapping("/cadastro")

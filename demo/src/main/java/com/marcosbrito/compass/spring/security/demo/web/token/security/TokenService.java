@@ -22,7 +22,7 @@ public class TokenService {
                                                                                 // forma com que meu algoritmo é
     // criado, cada chave faz com que as repostas mudem.
 
-    private String generateUser(Pessoa user) {
+    public String generateToken(Pessoa user) {
 
         try {
             Algorithm algorithm = Algorithm.HMAC256(SECRET_KEY);
@@ -42,7 +42,7 @@ public class TokenService {
         return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-03:00"));
     }
 
-    private String validadeToken(String token) {
+    public String validadeToken(String token) {
         try {
             Algorithm algorithm = Algorithm.HMAC256(SECRET_KEY);
 

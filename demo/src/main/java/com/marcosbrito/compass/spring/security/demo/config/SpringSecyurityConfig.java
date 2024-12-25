@@ -11,10 +11,16 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Configuration
 @EnableWebSecurity //habilitando a configuração de segurança do webSecurity
 public class SpringSecyurityConfig {
+
+    private final SecurityFilter securityFilter;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
@@ -26,7 +32,9 @@ public class SpringSecyurityConfig {
         .requestMatchers(HttpMethod.POST, "auth/cadastro").permitAll() //Eu preciso mudar isso para somente pessoas com adm poassam cadastrar
         .requestMatchers(HttpMethod.GET, "/pessoas").hasRole("ADMIN")
         .anyRequest().authenticated())
-        .build();
+        // Desejo criar um filtro pra verificar os tokens antes do filtro padrão. o filtro padrão é o Filtro que intercepta requisições de login, extrai credenciais, autentica o usuário e lida com sucesso ou falha na autenticação.
+        .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
+        .build(); 
             
     }
 
