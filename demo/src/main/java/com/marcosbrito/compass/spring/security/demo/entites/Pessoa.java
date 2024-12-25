@@ -1,6 +1,6 @@
 package com.marcosbrito.compass.spring.security.demo.entites;
 
-import java.io.Serializable;
+
 import java.util.Collection;
 import java.util.List;
 
