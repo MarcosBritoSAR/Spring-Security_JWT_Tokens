@@ -10,6 +10,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.marcosbrito.compass.spring.security.demo.entites.enums.RoleType;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,7 +33,7 @@ import lombok.ToString;
 @EqualsAndHashCode(of = "id")
 @Entity
 @Table(name = "pessoas")
-public class Pessoa implements UserDetails, Serializable {
+public class Pessoa implements UserDetails {
 
     private static final long serialVersionUID = 1L;
 
@@ -39,7 +41,7 @@ public class Pessoa implements UserDetails, Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+
     private String nome;
 
     @NotBlank
@@ -49,32 +51,40 @@ public class Pessoa implements UserDetails, Serializable {
     @NotBlank
     private String senha;
 
-    private RoleType role = RoleType.ROLE_USER;
+    private RoleType role;
 
-    enum RoleType {
-        ROLE_ADMIN,
-        ROLE_USER
+    public Pessoa(String email, String senha) {
+        this.email = email;
+        this.senha = senha;
+        this.role = RoleType.ROLE_USER;
+    }
+
+    public Pessoa(Long id, String nome, String email, String senha) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
 
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        //Precisa umas lista de permissões do usuario
-        if(getRole() == RoleType.ROLE_ADMIN){
+        // Precisa umas lista de permissões do usuario
+        if (getRole() == RoleType.ROLE_ADMIN) {
             return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));
-        }else{
+        } else {
             return List.of(new SimpleGrantedAuthority("ROLE_USER"));
         }
     }
 
     @Override
     public String getPassword() {
-        return getPassword();
+        return this.senha;
     }
 
     @Override
     public String getUsername() {
-        return getEmail();
+        return this.email;
 
     }
 }
