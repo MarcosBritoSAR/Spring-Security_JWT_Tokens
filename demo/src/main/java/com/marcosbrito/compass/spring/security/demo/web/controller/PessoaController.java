@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import com.marcosbrito.compass.spring.security.demo.common.ConstantesPessoa;
+
 import com.marcosbrito.compass.spring.security.demo.entites.Pessoa;
 import com.marcosbrito.compass.spring.security.demo.services.PessoaService;
 import com.marcosbrito.compass.spring.security.demo.web.dto.ResponsePessoaDto;
@@ -14,7 +14,7 @@ import com.marcosbrito.compass.spring.security.demo.web.dto.mapper.PessoaMapper;
 
 import lombok.RequiredArgsConstructor;
 
-import org.apache.tomcat.util.bcel.Const;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
